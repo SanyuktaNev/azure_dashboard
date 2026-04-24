@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #111827;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #38bdf8;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #cbd5e1;
+      padding: 10px;
+      margin: 5px 0;
+      display: block;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      background: #1e293b;
+      color: white;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .header {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      color: #94a3b8;
+    }
+
+    .card p {
+      font-size: 1.8rem;
+      margin-top: 10px;
+      color: #38bdf8;
+    }
+
+    /* Footer widget */
+    .footer-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #1e293b;
+      border-radius: 12px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #38bdf8;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+    @media (max-width: 700px) {
+      .sidebar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">⚡ MyDash</div>
+    <div class="nav">
+      <a href="#">🏠 Home</a>
+      <a href="#">📊 Analytics</a>
+      <a href="#">👤 Profile</a>
+      <a href="#">⚙ Settings</a>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="header">Dashboard Overview 🚀</div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Users</h3>
+        <p id="users">120</p>
+      </div>
+
+      <div class="card">
+        <h3>Sales</h3>
+        <p id="sales">75</p>
+      </div>
+
+      <div class="card">
+        <h3>Visits</h3>
+        <p id="visits">340</p>
+      </div>
+
+      <div class="card">
+        <h3>Revenue</h3>
+        <p id="revenue">₹9,800</p>
+      </div>
+    </div>
+
+    <div class="footer-box">
+      <h3>Live Counter</h3>
+      <p>Click to simulate real-time dashboard updates</p>
+      <button onclick="updateStats()">Update Stats</button>
+    </div>
+  </div>
+
+  <script>
+    function updateStats() {
+      document.getElementById("users").innerText =
+        Math.floor(Math.random() * 500);
+
+      document.getElementById("sales").innerText =
+        Math.floor(Math.random() * 200);
+
+      document.getElementById("visits").innerText =
+        Math.floor(Math.random() * 1000);
+
+      document.getElementById("revenue").innerText =
+        "₹" + Math.floor(Math.random() * 20000);
+    }
+
+    // auto update every 5 seconds
+    setInterval(updateStats, 5000);
+  </script>
+
+</body>
+</html>
